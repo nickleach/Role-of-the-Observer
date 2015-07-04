@@ -3,7 +3,7 @@
   'use strict';
 
 
-angular.module('App', ['ui.router'])
+angular.module('App', ['ui.router', 'mediaPlayer'])
 
 .config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
@@ -17,12 +17,12 @@ angular.module('App', ['ui.router'])
       controller: 'HomeCtrl'
     })
     .state('band', {
-      url:'/band',
+      url:'/:band',
       templateUrl: 'js/members/members.tpl.html',
       controller: 'MembersCtrl'
     })
     .state('albums', {
-      url:'/music',
+      url:'/:music',
       templateUrl: 'js/album.tpl.html',
       controller: 'AlbumCtrl'
     });

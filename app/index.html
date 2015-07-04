@@ -4,12 +4,50 @@
   <title>Role of the Observer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/vendor/normalize.css">
+  <link href="http://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
   <link rel="stylesheet" href="css/vendor/foundation.css">
+  <link rel="stylesheet" href="css/vendor/font-awesome.css">
   <link rel="stylesheet" href="css/vendor/angular-material.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-app="App">
+  <nav class="top-bar mynav" data-topbar data-options="sticky_on: large" role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1 style="font-size: 30px;"><a href="#/">Role of the Observer</a></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="has-dropdown">
+          <a href="#">Media</a>
+          <ul class="dropdown">
+            <li><a href="#/music">Music</a></li>
+            <li><a href="#">Videos</a></li>
+          </ul>
+        </li>
+        <li><a href="#/band">The Band</a></li>
+        <li class="has-dropdown">
+          <a href="#">Shows</a>
+          <ul class="dropdown">
+            <li><a href="#">Upcoming</a></li>
+            <li><a href="#">Past</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <!-- Left Nav Section -->
+    <!--   <ul class="left">
+        <li><a href="#">Left Nav Button</a></li>
+      </ul> -->
+    </section>
+  </nav>
 
   <div class="container" ui-view>
 
@@ -26,6 +64,9 @@
   <script src="js/vendor/foundation.orbit.js"></script>
   <script src="js/vendor/angular.js"></script>
   <script src="js/vendor/angular-ui-router.js"></script>
+
+  <script src="js/vendor/angular-media-player.min.js"></script>
+
   <script src="js/vendor/angular-animate.js"></script>
   <script src="js/vendor/angular-aria.js"></script>
   <script src="js/vendor/angular-material.js"></script>
