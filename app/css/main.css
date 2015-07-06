@@ -1,5 +1,6 @@
 body {
-  background-color: #455A64; }
+  background-color: #455A64;
+  height: auto; }
 
 h1 {
   font-family: 'Audiowide', cursive; }
@@ -7,3 +8,16 @@ h1 {
 .container {
   width: 1000px;
   margin: 50px auto; }
+
+.seekBase {
+  height: 30px;
+  width: 90%;
+  border: 1px solid #cccccc; }
+
+.seekLoad {
+  height: 30px;
+  width: 0;
+  background-color: #E0EAF1; }
+
+li {
+  cursor: pointer; }

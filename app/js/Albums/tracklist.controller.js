@@ -15,11 +15,23 @@
       // Quantum State
       // https://api.soundcloud.com/playlists/19520302.json?client_id=242a1e223a2af256f37ce3648bb93104
 
+      $scope.tracks=[];
 
-      $http.get(playlists)
+      var Track = function(options){
+        this.title = options.title;
+        this.stream = $sce.trustAsResourceUrl(options.stream_url + '?client_id=242a1e223a2af256f37ce3648bb93104');
+      };
+
+      $http.get('https://api.soundcloud.com/playlists/101081819.json?client_id=242a1e223a2af256f37ce3648bb93104')
         .success(function(data){
+          data.tracks.forEach( function(track){
 
-        $scope.playlistsData= data
+            var newT = new Track(track);
+
+            $scope.tracks.push(newT);
+
+
+          });
 
         });
 
