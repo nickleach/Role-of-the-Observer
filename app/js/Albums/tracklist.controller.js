@@ -15,7 +15,7 @@
       // Quantum State
       // https://api.soundcloud.com/playlists/19520302.json?client_id=242a1e223a2af256f37ce3648bb93104
 
-      $scope.tracks=[];
+
 
       var Track = function(options){
         this.title = options.title;
@@ -26,9 +26,9 @@
         .success(function(data){
           data.tracks.forEach( function(track){
 
-            var newT = new Track(track);
+            $scope.track = new Track(track);
 
-            $scope.tracks.push(newT);
+
 
 
           });
