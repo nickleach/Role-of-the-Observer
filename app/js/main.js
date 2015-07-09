@@ -3,7 +3,7 @@
   'use strict';
 
 
-angular.module('App', ['ui.router'])
+angular.module('App', ['ui.router', 'angularSoundManager'])
 
 .config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
