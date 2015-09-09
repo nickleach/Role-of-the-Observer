@@ -1,6 +1,24 @@
+@mixin album-background($image){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  height: 304px;
+  width: 320px;
+  z-index: 1;
+  background: #F7F8EB $image top left no-repeat;
+  background-size: 320px 100%;
+  color: white;
+
+}
+html{
+  background-color: black;
+}
 body{
-  background-color: #455A64;
-  height: initial;
+  // background-color: #455A64;
+  background-color: black;
+  height: 100%;
 }
 h1{
   font-family: 'Audiowide', cursive;
@@ -8,6 +26,8 @@ h1{
 .container{
   width: 1000px;
   margin: 50px auto;
+
+  background-color: #333333;
 }
 .seekBase {
   height: 30px;
@@ -23,60 +43,71 @@ h1{
 li {
   cursor: pointer;
 }
+.home-music{
+
+}
 .artist {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   position: relative;
 }
 .album {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-  height: 304px;
-  margin-left: 20px;
-  width: 320px;
-  z-index: 1;
-  background: #F7F8EB url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/Soundgarden-Animal-King.jpeg) top left no-repeat;
-  background-size: 320px 100%;
-  color: white;
+}
+.three{
+  @include album-background(url(https://f1.bcbits.com/img/a0010385105_16.jpg));
+}
+.three-container{
+
+}
+.roto-container{
+
+}
+.quantum-container{
+
+}
+.quantum{
+  @include album-background(url(https://f1.bcbits.com/img/a1323750806_16.jpg));
+}
+.roto-album{
+  @include album-background(url(https://f1.bcbits.com/img/a2707309848_16.jpg));
+}
+ol{
+  margin: 0;
 }
 .tracks {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 264px;
   transform: scale(0);
   transform-origin: center left;
-  width: 104px;
+  font-size: 14px;
+  padding-left: 30px;
   overflow: scroll;
   padding: 20px;
   position: absolute;
   top: 0;
-  z-index: 0;
-  font-size: 11px;
+  z-index: 12;
   text-transform: uppercase;
   text-overflow: ellipsis;
-  background: #FCF7E5;
-  color: #BA9779;
+  background: #888D92;
+  color: white;
 }
 .tracks a {
   display: flex;
-  opacity: 0;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.49);
+  // opacity: 0;
+  // text-shadow: 0 1px 0 rgba(255, 255, 255, 0.49);
   text-decoration: none;
-  color: #BA9779;
+  color: black;
   letter-spacing: .5px;
   &:hover {
-    color: #1F2006;
+    color: white;
   }
-  &:before {
-    content: "•";
-    display: inline-block;
-    padding-right: 5px;
-  }
+  // &:before {
+  //   content: "•";
+  //   display: inline-block;
+  //   padding-right: 5px;
+  // }
 }
 .album-overlay {
   position: absolute;
@@ -86,12 +117,12 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(#F6FDC9, 0.5);
+  background: rgba(47, 47, 45, 0.5);
   width: 100%;
   height: 100%;
   font-family: 'Rajdhani', sans-serif;
   text-transform: uppercase;
-  color: #1D1A01;
+  color: #E0E0E0;
   opacity: 0;
   transition: .3s all cubic-bezier(.44,.22,.18,.79);
 }

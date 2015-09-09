@@ -32,61 +32,73 @@ angular.module('App', ['ui.router', 'angularSoundManager'])
 .controller('HomeCtrl', ['$scope', 'AlbumService',
   function ($scope, AlbumService) {
 
+
     var tl = new TimelineMax(),
-  $album = document.querySelector('.album');
+    $Rotoalbum = document.querySelector('.roto-album'),
+    $Quantum = document.querySelector('.quantum'),
+    $Three = document.querySelector('.three');
 
-$album.innerHTML = '<div class="album-overlay">Click For Tracks</div>';
+    // Set overlay
+    $('.album').html('<div class="album-overlay">Click For Tracks</div>');
+    function toggle(el) {
 
-function toggle(el) {
+      var item = document.querySelector(el),
+      $album_overlay = document.querySelector('.album-overlay');
 
-  var item = document.querySelector(el),
-    $album_overlay = document.querySelector('.album-overlay');
+      item.classList.toggle('active');
 
-  item.classList.toggle('active');
+      if (item.classList.contains('active')) {
 
-  if (item.classList.contains('active')) {
+        $album_overlay.innerHTML = 'Close Tracks';
 
-    $album_overlay.innerHTML = 'Close Tracks';
+        tl.to([item], 0.375, {
+            scale: 1,
+            x: 16
+          })
+          .staggerTo([item], 1, {
+            x: 0,
+            boxShadow: '1px 1px 2px rgba(0,0,0,0.12)',
+            ease: Bounce.easeOut
+          }, 0.02)
+          .staggerFromTo(item.children, 1, {
+            opacity: 0,
+            x: -100
+          }, {
+            opacity: 1,
+            x: 0
+          }, 0.0575, "-=2");
 
-    tl.to([item], 0.375, {
-        scale: 1,
-        x: 16
-      })
-      .staggerTo([item], 1, {
-        x: 0,
-        boxShadow: '1px 1px 2px rgba(0,0,0,0.12)',
-        ease: Bounce.easeOut
-      }, 0.02)
-      .staggerFromTo(item.children, 1, {
-        opacity: 0,
-        x: -100
-      }, {
-        opacity: 1,
-        x: 0
-      }, 0.0575, "-=2");
+      } else {
 
-  } else {
+        $album_overlay.innerHTML = 'Click For Tracks';
 
-    $album_overlay.innerHTML = 'Click For Tracks';
+        tl.to([item], 0.25, {
+            scale: 1,
+            x: 10
+          })
+          .staggerTo([item], 0.25, {
+            scale: 0,
+            x: 0,
+            ease: Cubic.easeIn
+          });
 
-    tl.to([item], 0.25, {
-        scale: 1,
-        x: 10
-      })
-      .staggerTo([item], 0.25, {
-        scale: 0,
-        x: 0,
-        ease: Cubic.easeIn
-      });
+      }
+    }
 
-  }
-}
+    $Quantum.addEventListener('click', function() {
+      toggle('ol.quantum-tracks');
+    });
+    $Rotoalbum.addEventListener('click', function() {
+      toggle('ol.roto-tracks');
+    });
+    $Three.addEventListener('click', function() {
+      toggle('ol.three-tracks');
+    });
 
-$album.addEventListener('click', function() {
-  toggle('nav.tracks');
-});
 
-       var Track = function(options){
+
+  // Music Stuff
+  var Track = function(options){
         this.title = options.title;
         this.user = options.user;
         this.id = options.id;
@@ -113,13 +125,15 @@ $album.addEventListener('click', function() {
       var tTrack = new Track(track);
       $scope.ThreeTracks.push(tTrack);
     });
-    $scope.ThreeArt = $scope.ThreeTracks[0].albumArt;
+
     console.log($scope.ThreeTracks);
 
 
 
 
  });
+
+
   AlbumService.getAlbum(ROTOEp).success( function(data){
 
 
@@ -129,7 +143,7 @@ $album.addEventListener('click', function() {
       var tTrack = new Track(track);
       $scope.RotoTracks.push(tTrack);
     });
-    $scope.RotoArt = $scope.RotoTracks[0].albumArt;
+
     console.log($scope.RotoTracks);
 
 
@@ -146,7 +160,7 @@ $album.addEventListener('click', function() {
       var tTrack = new Track(track);
       $scope.QuantumTracks.push(tTrack);
     });
-    $scope.QuantumArt = $scope.QuantumTracks[0].albumArt;
+
     console.log($scope.Quantum);
     console.log($scope.QuantumTracks);
 

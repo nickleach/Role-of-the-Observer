@@ -13,14 +13,34 @@
       </li>
     </ul>
   <div class="home-music">
-
-    <div class="artist">
-      <div class="album"></div>
-      <nav class="tracks">
-        <a ng-repeat="track in ThreeTracks">{{track.title}}</a>
-      </nav>
+  <div class="row">
+    <div class="artist three-container large-4 columns">
+      <div class="album three"></div>
+      <ol class="tracks three-tracks">
+        <li ng-repeat="track in ThreeTracks">
+          <a href="#">{{track.title}}</a>
+        </li>
+      </ol>
     </div>
 
+
+    <div class="artist quantum-container large-4 columns">
+      <div class="album quantum"></div>
+      <ol class="tracks quantum-tracks">
+        <li ng-repeat="track in QuantumTracks">
+          <a href="#">{{track.title}}</a>
+        </li>
+      </ol>
+    </div>
+    <div class="artist roto-container large-4 columns">
+      <div class="album roto-album"></div>
+      <ol class="tracks roto-tracks">
+        <li ng-repeat="track in RotoTracks">
+          <a href="#">{{track.title}}</a>
+        </li>
+      </ol>
+    </div>
+</div>
 
 
   </div>
