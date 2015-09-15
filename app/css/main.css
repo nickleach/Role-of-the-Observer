@@ -9,7 +9,7 @@ h1 {
   font-family: 'Audiowide', cursive; }
 
 .container {
-  width: 1000px;
+  width: 1080px;
   margin: 50px auto;
   background-color: #333333; }
 
@@ -29,6 +29,8 @@ li {
 .artist {
   display: flex;
   position: relative; }
+  .artist ol {
+    list-style: none; }
 
 .three {
   display: flex;
@@ -75,7 +77,7 @@ ol {
 .tracks {
   display: flex;
   flex-direction: column;
-  height: 264px;
+  max-height: 264px;
   transform: scale(0);
   transform-origin: center left;
   font-size: 14px;
@@ -85,16 +87,17 @@ ol {
   position: absolute;
   top: 0;
   z-index: 12;
-  text-transform: uppercase;
+  width: 175px;
   text-overflow: ellipsis;
-  background: #888D92;
+  background: #282828;
   color: white; }
 
 .tracks a {
   display: flex;
   text-decoration: none;
-  color: black;
-  letter-spacing: .5px; }
+  color: lightblue;
+  letter-spacing: .5px;
+  margin-bottom: 5px; }
   .tracks a:hover {
     color: white; }
 
@@ -118,3 +121,7 @@ ol {
 .album-overlay:hover {
   cursor: pointer;
   opacity: 1; }
+
+.left {
+  margin-right: 30px;
+  transition: 1s ease; }
