@@ -1,7 +1,6 @@
 ;( function(){
 
   'use strict';
-
   angular.module('App')
 
   .directive('musicPlayer', [function () {
@@ -12,6 +11,6 @@
 
       }
     };
-  }])
+  }]);
 
 }());

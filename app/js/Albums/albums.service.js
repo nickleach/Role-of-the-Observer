@@ -9,6 +9,12 @@
 
       var th = this;
 
+      // this.loadTrack= function(track, album){
+
+
+
+      // };
+
       this.getAlbum = function(album){
 
         return $http.get(album);

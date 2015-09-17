@@ -1,3 +1,4 @@
+
     <ul class="example-orbit" data-orbit>
       <li>
         <img src="images/rotologo.jpg" alt="slide 1" />
@@ -18,7 +19,7 @@
       <div class="album three"></div>
       <ol class="tracks three-tracks">
         <li ng-repeat="track in ThreeTracks">
-          <a href="#">{{track.title}}</a>
+          <a ng-click="loadTrack(track, ThreeTracks)">{{track.title}}</a>
         </li>
       </ol>
     </div>
@@ -28,7 +29,7 @@
       <div class="album quantum"></div>
       <ol class="tracks quantum-tracks">
         <li ng-repeat="track in QuantumTracks">
-          <a href="#">{{track.title}}</a>
+          <a ng-click="loadTrack(track, QuantumTracks)">{{track.title}}</a>
         </li>
       </ol>
     </div>
@@ -36,7 +37,7 @@
       <div class="album roto-album"></div>
       <ol class="tracks roto-tracks">
         <li ng-repeat="track in RotoTracks">
-          <a href="#">{{track.title}}</a>
+          <a ng-click="loadTrack(track, RotoTracks)">{{track.title}}</a>
         </li>
       </ol>
     </div>

@@ -1,17 +1,25 @@
+<sound-manager></sound-manager>
 <div class="small-11 small-centered columns">
   <div class="large-1 columns">
-    <div class="small-album"></div>
+    <div class="small-album">
+      <img ng-src="{{currentPlaying.albumArt}}">
+    </div>
   </div>
   <div class="buttons large-3 columns">
-    <i class="fa fa-step-backward"></i>
-    <i class="material-icons">pause</i>
-    <i class="fa fa-step-forward"></i>
+    <i class="fa fa-step-backward" prev-track></i>
+    <i class="material-icons" play-pause-toggle>pause</i>
+    <i class="fa fa-step-forward" next-track></i>
     <div class="progress-bar">
-      progress here
+          <div class="seekBase centered" seek-track>
+                        <!-- {{ currentPostion }}  -->
+                        <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
+                        <!-- {{ currentDuration }} -->
+                    </div>
+
     </div>
   </div>
   <div class="large-4 columns player-tracks">
-    <h4>Track select here</h4>
+    <h4>{{ currentPlaying.title }}</h4>
   </div>
   <div class="large-2 columns">volume stuff here</div>
 </div>

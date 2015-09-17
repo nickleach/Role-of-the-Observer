@@ -31,16 +31,6 @@ h1{
 
   background-color: #333333;
 }
-.seekBase {
-  height: 30px;
-  width: 90%;
-  border: 1px solid #cccccc;
-}
-.seekLoad {
-  height: 30px;
-  width: 0;
-  background-color: #E0EAF1;
-}
 
 li {
   cursor: pointer;
@@ -155,6 +145,8 @@ music-player{
   }
   i{
     cursor: pointer;
+    border-radius: 70px;
+    padding: 6px;
   }
   .buttons{
     text-align: center;
@@ -169,10 +161,25 @@ music-player{
     font-size: 20px;
   }
 }
+music-player i:hover{
+  background-color: white;
+  color: black;
+}
 .small-album{
   margin: 5px;
   width: 90px;
   height: 90px;
   background-color: grey;
+}
+.seekBase {
+  margin: auto;
+  height: 15px;
+  width: 70%;
+  border: 1px solid #cccccc;
+}
+.seekLoad {
+  height: 15px;
+  width: 0;
+  background-color: #E0EAF1;
 }
 

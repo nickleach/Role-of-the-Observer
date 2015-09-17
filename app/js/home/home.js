@@ -84,24 +84,7 @@
 
 
 
-  // Music Stuff
-  var Track = function(options){
-        this.title = options.title;
-        this.user = options.user;
-        this.id = options.id;
-        this.genre = options.genre;
-        this.albumArt= options.artwork_url;
-        this.description = options.description;
-        this.license= options.license;
-        this.soundcloudLink = options.permalink_url;
-        this.wavePic = options.wavform_url;
-        this.url = options.stream_url + clientId;
-        this.play = function(){
-          angularPlayer.addTrack($scope.songs);
-          angularPlayer.play($scope.songs);
 
-        };
-      };
 
  AlbumService.getAlbum(ThreeOfAKind).success( function(data){
 
@@ -109,7 +92,7 @@
     $scope.Three = data;
     $scope.ThreeTracks = [];
     data.tracks.forEach( function(track){
-      var tTrack = new Track(track);
+      var tTrack = new $scope.Track(track);
       $scope.ThreeTracks.push(tTrack);
     });
 
@@ -127,7 +110,7 @@
     $scope.ROTOAlbum= data;
     $scope.RotoTracks = [];
     data.tracks.forEach( function(track){
-      var tTrack = new Track(track);
+      var tTrack = new $scope.Track(track);
       $scope.RotoTracks.push(tTrack);
     });
 
@@ -144,7 +127,7 @@
     $scope.Quantum= data;
     $scope.QuantumTracks = [];
     data.tracks.forEach( function(track){
-      var tTrack = new Track(track);
+      var tTrack = new $scope.Track(track);
       $scope.QuantumTracks.push(tTrack);
     });
 
