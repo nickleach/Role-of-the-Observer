@@ -3,7 +3,7 @@
   'use strict';
   angular.module('App')
 
-  .directive('musicPlayer', [function () {
+  .directive('myPlayer', [function () {
     return {
       restrict: 'E',
       templateUrl: 'js/home/musicplayer.html',

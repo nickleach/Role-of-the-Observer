@@ -117,31 +117,38 @@ ol {
   margin-right: 30px;
   transition: 1s ease; }
 
-music-player {
+my-player {
+  position: relative;
   width: 100%;
   height: 100px;
   bottom: 0;
   color: white;
   position: fixed;
   background-color: black;
-  z-index: 20; }
-  music-player .material-icons {
+  z-index: 20;
+  transition: 0.5s ease-in; }
+  my-player .material-icons {
     font-size: 45px; }
-  music-player i {
+  my-player .minimize {
+    font-size: 25px;
+    position: absolute;
+    top: 10;
+    right: 10; }
+  my-player i {
     cursor: pointer;
     border-radius: 70px;
     padding: 6px; }
-  music-player .buttons {
+  my-player .buttons {
     text-align: center;
     margin: 10px;
     font-size: 30px; }
-  music-player h4 {
+  my-player h4 {
     margin: 40px;
     color: white; }
-  music-player .progress-bar {
+  my-player .progress-bar {
     font-size: 20px; }
 
-music-player i:hover {
+my-player i:hover {
   background-color: white;
   color: black; }
 
@@ -161,3 +168,9 @@ music-player i:hover {
   height: 15px;
   width: 0;
   background-color: #E0EAF1; }
+
+.player-minimize {
+  height: 20px;
+  transition: 0.5s ease; }
+  .player-minimize .minimize {
+    top: 0; }

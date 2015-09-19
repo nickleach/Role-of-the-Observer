@@ -30,6 +30,16 @@ angular.module('App', ['ui.router', 'angularSoundManager'])
   }])
 .controller('MainController', ['$scope', 'angularPlayer', '$timeout',
   function ($scope, angularPlayer, $timeout) {
+
+   $scope.minimize = function(e){
+      $('my-player').toggleClass('player-minimize');
+      if($('my-player').hasClass('player-minimize')){
+        $('.minimize').html('launch');
+      }else {
+        $('.minimize').html('call_received');
+      }
+
+    }
       // Music Stuff
   $scope.Track = function(options){
         this.title = options.title;

@@ -1,6 +1,8 @@
 ## Welcome to My Angular Project
 
-> I am your Readme.md file, you should probably update me.
+> My band's website. Completely re-writing the site by switching from Wordpress to Angular.
+>[Here's the old version](http://rotoband.com)
+> Will provide a link for this development soon.
 
 
 ## Usage
