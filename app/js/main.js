@@ -3,7 +3,7 @@
   'use strict';
 
 
-angular.module('App', ['ui.router', 'angularSoundManager'])
+angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
 
 .config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
@@ -60,6 +60,7 @@ angular.module('App', ['ui.router', 'angularSoundManager'])
       };
 
     $scope.loadTrack = function(track, album){
+      $('my-player').removeClass('played');
 
       album.forEach( function(t){
         angularPlayer.addTrack(t);

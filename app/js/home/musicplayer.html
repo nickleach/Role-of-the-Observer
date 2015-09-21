@@ -19,9 +19,11 @@
     </div>
   </div>
   <div class="large-4 columns player-tracks">
-    <h4>{{ currentPlaying.title }}</h4>
+    <md-select ng-model="currentPlaying.title">
+      <md-option ng-repeat="p in playlist" value= "{{p.title}}">{{p.title}}</md-option>
+    </md-select>
   </div>
-  <div class="large-2 columns">
-    <i class="material-icons minimize" ng-click="minimize()">call_received</i>
+  <div class="large-2 columns right-box">
+    <span class="material-icons minimize" ng-click="minimize()">call_received</span>
   </div>
 </div>
