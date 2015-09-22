@@ -75,7 +75,7 @@
       this.moveAlbum = function(el, direction){
         //TODO make animation
 
-      }
+      };
 
   }]);
 

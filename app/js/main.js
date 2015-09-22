@@ -31,6 +31,11 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
 .controller('MainController', ['$scope', 'angularPlayer', '$timeout',
   function ($scope, angularPlayer, $timeout) {
 
+    $scope.playMe = function(track){
+
+      $scope.currentlyPlaying = track;
+    };
+
    $scope.minimize = function(e){
       $('my-player').toggleClass('player-minimize');
       if($('my-player').hasClass('player-minimize')){
@@ -39,7 +44,7 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
         $('.minimize').html('call_received');
       }
 
-    }
+    };
       // Music Stuff
   $scope.Track = function(options){
         this.title = options.title;
@@ -53,8 +58,7 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
         this.wavePic = options.wavform_url;
         this.url = options.stream_url + '?client_id='+ clientId;
         this.play = function(){
-          angularPlayer.addTrack($scope.songs);
-          angularPlayer.play($scope.songs);
+          angularPlayer.play(this);
 
         };
       };
@@ -62,19 +66,26 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
     $scope.loadTrack = function(track, album){
       $('my-player').removeClass('played');
 
-      album.forEach( function(t){
-        angularPlayer.addTrack(t);
+      $scope.currentAlbum = album;
 
-      });
       $timeout(function() {
-              angularPlayer.playTrack(track.id);
-              $scope.currentPlaying = angularPlayer.currentTrackData();
+        if(!$scope.$$phase) {
+            $scope.$apply();
+            album.forEach(function(t){
+              angularPlayer.addTrack(t);
+            });
+
+        }
+
+          angularPlayer.playTrack(track.id);
+          $scope.currentPlaying = angularPlayer.currentTrackData();
+          $scope.currentlyPlaying = track;
       }, 500);
 
 
     };
 
-}])
+}]);
 
 
 }());
