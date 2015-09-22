@@ -1,0 +1,6 @@
+{
+  "name": "rotoband2",
+  "root": "app",
+  "clean_urls": true,
+  "error_page": "error.html"
+}
