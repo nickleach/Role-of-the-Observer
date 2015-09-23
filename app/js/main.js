@@ -33,8 +33,8 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
 
     // Play function from select switch
     $scope.playMe = function(track){
+      $scope.currentPlaying = angularPlayer.currentTrackData();
 
-      $scope.currentlyPlaying = track;
     };
 
     // Minimize player function
@@ -85,7 +85,7 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
 
           angularPlayer.playTrack(track.id);
           $scope.currentPlaying = angularPlayer.currentTrackData();
-          $scope.currentlyPlaying = track;
+
       }, 500);
 
 

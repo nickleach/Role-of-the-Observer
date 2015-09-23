@@ -98,7 +98,9 @@ ol{
   text-decoration: none;
   color: lightblue;
   letter-spacing: .5px;
-  margin-bottom: 5px;
+  margin-bottom: 5px ;
+  padding-bottom: 5px;
+  border-bottom: 1px solid slategrey;
   &:hover {
     color: white;
   }
@@ -198,6 +200,10 @@ my-player i:hover{
 .player-minimize{
   height: 30px;
   transition: 0.5s ease;
+  i{
+    opacity: 0;
+    transition: 0.5s ease;
+  }
   .minimize{
     top: 5px;
 

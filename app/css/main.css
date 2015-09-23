@@ -89,7 +89,9 @@ ol {
   text-decoration: none;
   color: lightblue;
   letter-spacing: .5px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid slategrey; }
   .tracks a:hover {
     color: white; }
 
@@ -176,6 +178,9 @@ my-player i:hover {
 .player-minimize {
   height: 30px;
   transition: 0.5s ease; }
+  .player-minimize i {
+    opacity: 0;
+    transition: 0.5s ease; }
   .player-minimize .minimize {
     top: 5px; }
   .player-minimize .small-album {

@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="large-4 columns player-tracks">
-    <md-select ng-model="currentlyPlaying.title" ng-change="playMe(currentlyPlaying)">
+    <md-select ng-model="currentPlaying.title" ng-change="playMe(currentPlaying)">
       <md-option ng-repeat="p in currentAlbum" value="{{p.title}}" play-from-playlist="p">{{p.title}}</md-option>
     </md-select>
   </div>
