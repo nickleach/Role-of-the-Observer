@@ -31,11 +31,13 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
 .controller('MainController', ['$scope', 'angularPlayer', '$timeout',
   function ($scope, angularPlayer, $timeout) {
 
+    // Play function from select switch
     $scope.playMe = function(track){
 
       $scope.currentlyPlaying = track;
     };
 
+    // Minimize player function
    $scope.minimize = function(e){
       $('my-player').toggleClass('player-minimize');
       if($('my-player').hasClass('player-minimize')){
@@ -45,7 +47,7 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
       }
 
     };
-      // Music Stuff
+      // Track Constructor
   $scope.Track = function(options){
         this.title = options.title;
         this.user = options.user;
@@ -57,22 +59,26 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
         this.soundcloudLink = options.permalink_url;
         this.wavePic = options.wavform_url;
         this.url = options.stream_url + '?client_id='+ clientId;
-        this.play = function(){
-          angularPlayer.play(this);
 
-        };
       };
 
+      // Load album/play track
     $scope.loadTrack = function(track, album){
       $('my-player').removeClass('played');
 
       $scope.currentAlbum = album;
 
       $timeout(function() {
+
         if(!$scope.$$phase) {
+
             $scope.$apply();
+
             album.forEach(function(t){
+
+              if(!_.contains($scope.playlist, t))
               angularPlayer.addTrack(t);
+
             });
 
         }
