@@ -20,17 +20,24 @@
   },
   "homepage": "https://github.com/tiy-atl-js-q2-2015/Template-Angular",
   "devDependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-declare": "^0.3.0",
     "gulp-htmlhint": "^0.1.1",
     "gulp-jshint": "^1.11.0",
+    "gulp-nodemon": "^2.0.4",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.1",
     "gulp-server-livereload": "^1.4.0",
     "gulp-wrap": "^0.11.0",
     "jshint-stylish": "^2.0.0",
-    "main-bower-files": "^2.8.0"
+    "jsonwebtoken": "^5.4.0",
+    "main-bower-files": "^2.8.0",
+    "mongoose": "^4.1.10",
+    "morgan": "^1.6.1"
   }
 }
