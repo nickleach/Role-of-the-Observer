@@ -4,37 +4,39 @@
 
   angular.module('App')
 
-  .controller('MembersCtrl', ['$scope',
-    function ($scope) {
+  .controller('MembersCtrl', ['$scope', 'MemberService',
+    function ($scope, MemberService) {
 
-      $scope.members = [
+      //get all members
 
-        {
-          name: 'Nick Leach',
-          instrument: 'Guitar, Vocals, Keyboards',
-          description: '',
-          image: 'images/nick.jpg'
-        },
-        {
-          name: 'Tyler Rhodes',
-          instrument: 'Guitar, Vocals, Keyboards',
-          description: '',
-          image: 'images/tyler.jpg'
-        },
-        {
-          name: 'Max Leach',
-          instrument: 'Drums',
-          description: '',
-          image: 'images/max.jpg'
-        },
-        {
-          name: 'Nate Epperson',
-          instrument: 'Bass',
-          description: '',
-          image: 'images/nate.jpg'
-        }
+      MemberService.getMembers()
+        .success(function(data){
+          $scope.members = data;
 
-      ];
+          console.log($scope.members);
+
+        });
+
+
+
+
+  }])
+
+  .controller('MemberCtrl', ['$scope', 'MemberService',
+    function ($scope, MemberService) {
+
+      //TODO write get member with routeparams
+
+
+
+      //update member function
+
+      $scope.updateMember = function(member){
+        MemberService.editMember(member)
+          .success(function(){
+
+          });
+      };
 
 
   }]);

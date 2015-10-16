@@ -10,7 +10,7 @@ var jshint      = require('gulp-jshint');
 var stylish     = require('jshint-stylish');
 var htmlhint    = require('gulp-htmlhint');
 var server      = require('gulp-server-livereload');
-var nodemon     = require('gulp-nodemon');
+
 
 var notifyError = function() {
   return plumber({
@@ -24,7 +24,7 @@ var notifyError = function() {
 //================================================
 
 // Start the server and also the watch task
-gulp.task('watch', ['watchlist', 'nodemon']);
+gulp.task('watch', ['watchlist', 'webserver']);
 
 gulp.task('watchlist', function() {
   gulp.watch('./app/sass/*.scss',     ['sass']);
@@ -37,23 +37,12 @@ gulp.task('watchlist', function() {
 // SERVER
 //================================================
 
-// gulp.task('webserver', function() {
-//   return gulp.src('app')
-//     .pipe(server({
-//       livereload: true,
-//       // open: true // Uncomment if you want it to open the project for you
-//     }));
-// });
-
-//================================================
-// Nodemon
-//================================================
-
-gulp.task('nodemon', function () {
-  nodemon({
-    script: 'server.js'
-
-  })
+gulp.task('webserver', function() {
+  return gulp.src('app')
+    .pipe(server({
+      livereload: true,
+      // open: true // Uncomment if you want it to open the project for you
+    }));
 });
 
 //================================================

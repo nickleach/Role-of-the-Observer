@@ -5,6 +5,14 @@
 
 angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
 
+.constant('API', {
+    URL: 'https://floating-shelf-4330.herokuapp.com/',
+    CONFIG: {
+      headers:{
+    }
+  }
+})
+
 .config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
 
