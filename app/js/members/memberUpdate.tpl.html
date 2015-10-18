@@ -1,0 +1,31 @@
+<form ng-submit="updateMember(member)">
+  <div class="row">
+    <div class="large-12-columns">
+      <label>Name
+        <input type="text" ng-model="member.name" placeholder="{{member.name}}">
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12-columns">
+      <label>Instrument
+        <input type="text" ng-model="member.instrument" placeholder="{{member.instrument}}">
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12-columns">
+      <label>Image Url
+        <input type="text" ng-model="member.image" placeholder="{{member.image}}">
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Description
+        <textarea ng-model="member.description" placeholder="{{member.description}}"></textarea>
+      </label>
+    </div>
+  </div>
+  <button>Update</button>
+</form>

@@ -1,5 +1,6 @@
 <ul class="small-block-grid-2">
   <li ng-repeat="m in members">
-    <img src="{{m.image}}">
+    <a href="#/band/{{m._id}}"><img src="{{m.image}}"></a>
   </li>
 </ul>
+<div ui-view></div>

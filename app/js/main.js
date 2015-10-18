@@ -29,6 +29,16 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
       templateUrl: 'js/members/members.tpl.html',
       controller: 'MembersCtrl'
     })
+    .state('band.member', {
+      url:'/:id',
+      templateUrl:'js/members/singleMember.tpl.html',
+      controller: 'MemberCtrl'
+    })
+    .state('band.member.update', {
+      url:'/update',
+      templateUrl:'js/members/memberUpdate.tpl.html',
+      controller: 'MemberCtrl'
+    })
     .state('albums', {
       url:'/music',
       templateUrl: 'js/albums/album.tpl.html',
