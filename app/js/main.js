@@ -3,7 +3,7 @@
   'use strict';
 
 
-angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
+angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial', 'ngCookies'])
 
 .constant('API', {
     URL: 'https://floating-shelf-4330.herokuapp.com/',
@@ -51,6 +51,18 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
     });
 
   }])
+
+  .run(['AdminService', '$rootScope',
+
+    function (AdminService, $rootScope) {
+
+      $rootScope.$on('$stateChangeStart', function () {
+        AdminService.checkUser();
+      });
+
+    }
+
+  ])
 .controller('MainController', ['$scope', 'angularPlayer', '$timeout',
   function ($scope, angularPlayer, $timeout) {
 

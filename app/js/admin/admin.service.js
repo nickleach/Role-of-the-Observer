@@ -4,27 +4,61 @@
 
   angular.module('App')
 
-  .factory('AdminService', [ '$http', 'API', function ($http, API) {
+  .factory('AdminService', [ '$http', 'API', '$cookies', '$state', '$rootScope',
+    function ($http, API, $cookies, $state, $rootScope) {
 
     var endpoint = API.URL + 'admin';
 
-    var _successLog = function(data){
-      console.log(data);
+
+    // check for user token
+    var checkUser = function(){
+      var token = $cookies.get('token');
+      _updateUser(token);
     };
 
-    var login = function(user){
+    // update headers with token
+    var _updateUser= function(token){
+      if(token !== undefined){
+        API.CONFIG.headers['x-access-token'] = token;
+        $rootScope.admin = true;
+      }else{
+        $rootScope.admin = false;
+
+      }
+
+    };
+
+    // save token in a cookie
+    var _successLog = function(data){
+      $cookies.put('token', data.token);
+      $state.go('home');
+
+    };
+
+    // login user
+    var logIn = function(user){
       $http.post(endpoint + '/login' , user)
         .success(function(data){
           _successLog(data);
         });
     };
 
+    var logOut = function(){
+      $cookies.remove('token');
+      $state.go('home');
+      _updateUser();
+    };
+
 
 
 
     return {
-      login : login
+      logIn : logIn,
+      checkUser : checkUser,
+      logOut : logOut
     };
+
+
   }]);
 
 

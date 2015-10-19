@@ -38,7 +38,7 @@
 
       $scope.updateMember = function(member){
 
-        MemberService.editMember(member)
+        MemberService.editMember(member, member._id)
           .success(function(data){
             $state.go('band');
           });

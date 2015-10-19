@@ -1,5 +1,5 @@
 <div ui-view>
-<a href="#/band/{{member._id}}/update"><i class="fa fa-pencil-square">Edit</i></a>
+<a href="#/band/{{member._id}}/update" ng-show="admin"><i class="fa fa-pencil-square">Edit</i></a>
   <h1>{{member.name}}</h1>
   <h5>{{member.instrument}}</h5>
   <p>{{member.description}}</p>
