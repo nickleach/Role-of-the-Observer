@@ -1,0 +1,17 @@
+<div class="login">
+  <h2>Log In</h2>
+  <hr/>
+
+  <fieldset >
+    <legend>Enter Your Login Information</legend>
+    <form ng-submit="login(user)">
+      <div class="large-6 columns">
+      <label>Username</label>
+      <input ng-model="user.username" type="text">
+      <label>Password</label>
+      <input ng-model="user.password" type="password">
+      <button>Log Me In</button>
+      </div>
+    </form>
+  </fieldset>
+</div>

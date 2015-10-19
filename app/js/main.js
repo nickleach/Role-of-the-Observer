@@ -43,6 +43,11 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial'])
       url:'/music',
       templateUrl: 'js/albums/album.tpl.html',
       controller: 'AlbumCtrl'
+    })
+    .state('admin', {
+      url:'/p1n3s7r4w',
+      templateUrl: 'js/admin/login.tpl.html',
+      controller: 'AdminCtrl'
     });
 
   }])

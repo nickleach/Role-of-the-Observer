@@ -20,8 +20,8 @@
 
   }])
 
-  .controller('MemberCtrl', ['$scope', 'MemberService', '$stateParams',
-    function ($scope, MemberService, $stateParams) {
+  .controller('MemberCtrl', ['$scope', 'MemberService', '$stateParams','$state',
+    function ($scope, MemberService, $stateParams, $state) {
 
       // get id from url
       var id = $stateParams.id;
@@ -40,7 +40,7 @@
 
         MemberService.editMember(member)
           .success(function(data){
-            console.log(data);
+            $state.go('band');
           });
       };
 
