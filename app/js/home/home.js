@@ -37,8 +37,7 @@
 
 
 
- AlbumService.getAlbum(ThreeOfAKind).success( function(data){
-
+  AlbumService.getAlbum(ThreeOfAKind).success( function(data){
 
     $scope.Three = data;
     $scope.ThreeTracks = [];
@@ -47,16 +46,10 @@
       $scope.ThreeTracks.push(tTrack);
     });
 
-    // console.log($scope.ThreeTracks);
-
-
-
-
- });
+  });
 
 
   AlbumService.getAlbum(ROTOEp).success( function(data){
-
 
     $scope.ROTOAlbum= data;
     $scope.RotoTracks = [];
@@ -65,15 +58,10 @@
       $scope.RotoTracks.push(tTrack);
     });
 
-    // console.log($scope.RotoTracks);
+  });
 
 
-
-
-
- });
   AlbumService.getAlbum(QuantumState).success( function(data){
-
 
     $scope.Quantum= data;
     $scope.QuantumTracks = [];
@@ -82,17 +70,11 @@
       $scope.QuantumTracks.push(tTrack);
     });
 
-    // console.log($scope.Quantum);
-    // console.log($scope.QuantumTracks);
-
-
-
-
- });
+  });
 
  $(document).foundation();
 
 
-}]);
+  }]);
 
 }());

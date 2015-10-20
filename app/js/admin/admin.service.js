@@ -31,7 +31,7 @@
     // save token in a cookie
     var _successLog = function(data){
       $cookies.put('token', data.token);
-      $state.go('home');
+      $('#adminModal').foundation('reveal', 'close');
 
     };
 

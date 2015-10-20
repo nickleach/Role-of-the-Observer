@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/vendor/normalize.css">
   <link href="http://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/vendor/foundation.css">
   <link rel="stylesheet" href="css/vendor/font-awesome.css">
   <link rel="stylesheet" href="css/vendor/angular-material.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
+
+
 <body ng-app="App" ng-controller="MainController">
   <nav class="top-bar mynav" data-topbar data-options="sticky_on: large" role="navigation">
     <ul class="title-area">
@@ -23,6 +24,7 @@
     </ul>
 
     <section class="top-bar-section">
+
       <!-- Right Nav Section -->
       <ul class="right">
         <li class="has-dropdown">
@@ -33,8 +35,7 @@
           </ul>
         </li>
         <li><a href="#/band">The Band</a></li>
-        <li><a href="#/shows">Shows</a>
-        </li>
+        <li><a href="#/shows">Shows</a></li>
         <li><a href="#">Press</a></li>
         <li><a href="#">Contact</a></li>
         <li class="has-dropdown" ng-controller="AdminCtrl" ng-show="admin">
@@ -52,11 +53,31 @@
       </ul> -->
     </section>
   </nav>
+  <div id="adminModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <div class="login" ng-controller="AdminCtrl">
+    <h2>Admin Log In</h2>
+    <hr/>
 
-  <div class="container large-12 columns" ui-view>
+    <fieldset >
+      <legend>Enter Your Login Information</legend>
+      <form ng-submit="login(user)">
+        <div class="large-6 columns">
+        <label>Username</label>
+        <input ng-model="user.username" type="text">
+        <label>Password</label>
+        <input ng-model="user.password" type="password">
+        <button>Log Me In</button>
+        </div>
+      </form>
+    </fieldset>
+</div>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+  <div class="container" ui-view>
 
   </div>
-<my-player class="played"></my-player>
+  <my-player class="played"></my-player>
 
   <!-- VENDOR -->
   <script src="js/vendor/jquery.js"></script>
@@ -65,28 +86,22 @@
   <script src="js/vendor/modernizr.js"></script>
   <script src="js/vendor/foundation.js"></script>
   <script src="js/vendor/foundation.orbit.js"></script>
-
   <script src="js/vendor/foundation.reveal.js"></script>
-
   <script src="js/vendor/angular.js"></script>
   <script src="js/vendor/angular-ui-router.js"></script>
   <script src="js/vendor/angular-soundmanager2.js"></script>
   <script src="js/vendor/angular-animate.js"></script>
   <script src="js/vendor/angular-aria.js"></script>
   <script src="js/vendor/angular-material.js"></script>
-
   <script src="js/vendor/angular-cookies.js"></script>
 
+  <script src="js/vendor/cheet.js"></script>
 
   <!-- MAIN -->
 
   <script src="js/clientId.js"></script>
-
   <script src="js/main.js"></script>
-
   <script src="js/home/home.js"></script>
-
-
 
   <!-- Directives -->
   <script src="js/albums/musicplayer.directive.js"></script>
@@ -95,19 +110,12 @@
   <script src="js/admin/admin.service.js"></script>
   <script src="js/albums/albums.service.js"></script>
   <script src="js/members/members.service.js"></script>
-
   <script src="js/shows/shows.service.js"></script>
-
-
-
-
-
 
   <!-- Controllers -->
   <script src="js/admin/admin.controller.js"></script>
   <script src="js/albums/albums.controller.js"></script>
   <script src="js/members/members.controller.js"></script>
-
   <script src="js/shows/shows.controller.js"></script>
 
 
