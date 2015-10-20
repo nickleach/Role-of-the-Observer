@@ -44,6 +44,11 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial', 'ngCook
       templateUrl: 'js/albums/album.tpl.html',
       controller: 'AlbumCtrl'
     })
+    .state('shows',{
+      url:'/shows',
+      templateUrl: 'js/shows/shows.tpl.html',
+      controller: 'ShowCtrl'
+    })
     .state('admin', {
       url:'/p1n3s7r4w',
       templateUrl: 'js/admin/login.tpl.html',
