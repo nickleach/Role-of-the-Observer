@@ -8,7 +8,6 @@
     function ($scope, AdminService, $state) {
 
     $scope.login = function(user){
-      console.log(user);
       AdminService.logIn(user);
 
     };
