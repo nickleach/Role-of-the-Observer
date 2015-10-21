@@ -4,9 +4,9 @@
 
   angular.module('App')
 
-  .controller('ShowCtrl',  ['$scope', 'ShowService',
-    function ($scope, ShowService) {
-      $(document).foundation();
+  .controller('ShowCtrl',  ['$scope', 'ShowService', '$state',
+    function ($scope, ShowService, $state) {
+
 
       ShowService.getShows()
         .success(function(data){
@@ -14,7 +14,10 @@
         });
 
       $scope.addShow= function(show){
-        console.log(moment(show.date).format("ddd MMM Do YYYY"));
+        ShowService.newShow(show).success(function(data){
+           $('#showModal').foundation('reveal', 'close');
+           $state.reload();
+        });
 
       };
 
