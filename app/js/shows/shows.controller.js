@@ -13,6 +13,10 @@
           $scope.shows = data;
         });
 
+      $scope.addShow= function(show){
+        console.log(moment(show.date).format("ddd MMM Do YYYY"));
+
+      };
 
   }]);
 

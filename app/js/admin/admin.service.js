@@ -32,7 +32,11 @@
     var _successLog = function(data){
       $cookies.put('token', data.token);
       $('#adminModal').foundation('reveal', 'close');
-
+      if($state.is('home')){
+          $state.reload();
+        }else{
+          $state.go('home');
+        }
     };
 
     // login user
