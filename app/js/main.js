@@ -47,7 +47,7 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial', 'ngCook
     .state('shows',{
       url:'/shows',
       templateUrl: 'js/shows/shows.tpl.html',
-      controller: 'ShowCtrl'
+      controller: 'ShowsCtrl'
     })
     .state('admin', {
       url:'/p1n3s7r4w',
@@ -68,6 +68,7 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial', 'ngCook
     }
 
   ])
+
 .controller('MainController', ['$scope', 'angularPlayer', '$timeout',
   function ($scope, angularPlayer, $timeout) {
 

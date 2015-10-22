@@ -2,7 +2,7 @@
   <h1>Upcoming Dates</h1>
 
   <!-- modal button/add button -->
-  <i class="fa fa-plus-square" data-reveal-id="showModal" ng-show="admin" style="color:white"></i>
+  <button  data-reveal-id="showModal" ng-show="admin">Add Show <i class="fa fa-plus-square" style="color:white"></i></button>
 
   <!-- Modal -->
   <div id="showModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
@@ -66,10 +66,29 @@
     </thead>
     <tbody>
       <tr ng-repeat="show in shows | filter:{upcoming:true}">
-        <td>{{show.date}} {{show.time}}</td>
-        <td>{{show.venue}}</td>
-        <td>{{show.location}}</td>
-        <td>{{show.description}}</td>
+        <td ng-hide="editorEnabled">{{show.date | dateTime}} @ {{show.time}}</td>
+        <td ng-hide="editorEnabled">{{show.venue}}</td>
+        <td ng-hide="editorEnabled">{{show.location}}</td>
+        <td ng-hide="editorEnabled">{{show.description}}
+         <a href="#" ng-click="editorEnabled=!editorEnabled">Edit</a>
+         </td>
+
+        <td ng-show="editorEnabled">
+            Date: {{show.date | dateTime}}
+          <input type="date" ng-model="date">
+          <input type="text" ng-model="show.time" placeholder="{{show.time}}">
+        </td>
+        <td ng-show="editorEnabled">
+          <input type="text" ng-model="show.venue" placeholder="{{show.venue}}">
+        </td>
+        <td ng-show="editorEnabled">
+          <input type="text" ng-model="show.location" placeholder="{{show.location}}">
+        </td>
+        <td ng-show="editorEnabled">
+          <input type="text" ng-model="show.description" placeholder="{{show.description}}">
+          <a href="#" ng-click="editorEnabled=!editorEnabled; editShow(show)">Done</a>
+        </td>
+
       </tr>
     </tbody>
   </table>
@@ -86,10 +105,29 @@
     </thead>
     <tbody>
       <tr ng-repeat="show in shows | filter:{upcoming:false}">
-        <td>{{show.date}} {{show.time}}</td>
-        <td>{{show.venue}}</td>
-        <td>{{show.location}}</td>
-        <td>{{show.description}}</td>
+        <td ng-hide="editorEnabled">{{show.date | dateTime}} @ {{show.time}}</td>
+        <td ng-hide="editorEnabled">{{show.venue}}</td>
+        <td ng-hide="editorEnabled">{{show.location}}</td>
+        <td ng-hide="editorEnabled">{{show.description}}
+         <a href="#" ng-click="editorEnabled=!editorEnabled">Edit</a>
+         </td>
+
+        <td ng-show="editorEnabled">
+          Date: {{show.date | dateTime}}
+          <input type="date" ng-model="date">
+          <input type="text" ng-model="show.time" placeholder="{{show.time}}">
+        </td>
+        <td ng-show="editorEnabled">
+          <input type="text" ng-model="show.venue" placeholder="{{show.venue}}">
+        </td>
+        <td ng-show="editorEnabled">
+          <input type="text" ng-model="show.location" placeholder="{{show.location}}">
+        </td>
+        <td ng-show="editorEnabled">
+          <input type="text" ng-model="show.description" placeholder="{{show.description}}">
+          <a href="#" ng-click="editorEnabled=!editorEnabled; editShow(show, date)">Done</a>
+        </td>
+
       </tr>
     </tbody>
   </table>
