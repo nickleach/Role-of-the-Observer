@@ -18,15 +18,18 @@
 
   })
 
-  .controller('ShowsCtrl',  ['$scope', 'ShowService', '$state',
-    function ($scope, ShowService, $state) {
+  .controller('ShowsCtrl',  ['$scope', 'ShowService', '$state', '$mdToast',
+    function ($scope, ShowService, $state, $mdToast) {
 
 
+      //get shows
       ShowService.getShows()
         .success(function(data){
           $scope.shows = data;
         });
 
+
+      // add a new show
       $scope.addShow= function(show){
 
         ShowService.newShow(show).success(function(data){
@@ -36,6 +39,8 @@
 
       };
 
+
+      // update existing
       $scope.editShow = function(show, date){
 
         if(date){
@@ -45,15 +50,30 @@
         }
 
         ShowService.editShow(show, show._id).success(function(data){
+
+          // show toast
+           $mdToast.show(
+            $mdToast.simple()
+              .content(data[0].message)
+              .position('right')
+              .hideDelay(3000)
+          );
           $state.reload();
         });
       };
 
 
+
+      // delete show
       $scope.deleteShow = function(id){
-        console.log(id);
         ShowService.deleteShow(id).success(function(data){
-          console.log(data);
+          // show toast
+           $mdToast.show(
+            $mdToast.simple()
+              .content(data.message)
+              .position('right')
+              .hideDelay(3000)
+          );
           $state.reload();
         });
       };

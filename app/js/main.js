@@ -48,12 +48,12 @@ angular.module('App', ['ui.router', 'angularSoundManager', 'ngMaterial', 'ngCook
       url:'/shows',
       templateUrl: 'js/shows/shows.tpl.html',
       controller: 'ShowsCtrl'
-    })
-    .state('admin', {
-      url:'/p1n3s7r4w',
-      templateUrl: 'js/admin/login.tpl.html',
-      controller: 'AdminCtrl'
     });
+    // .state('admin', {
+    //   url:'/p1n3s7r4w',
+    //   templateUrl: 'js/admin/login.tpl.html',
+    //   controller: 'AdminCtrl'
+    // });
 
   }])
 
