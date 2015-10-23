@@ -49,6 +49,15 @@
         });
       };
 
+
+      $scope.deleteShow = function(id){
+        console.log(id);
+        ShowService.deleteShow(id).success(function(data){
+          console.log(data);
+          $state.reload();
+        });
+      };
+
   }]);
 
 

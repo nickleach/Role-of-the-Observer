@@ -38,7 +38,7 @@
     };
 
     // delete show
-    var deleteShow = function(){
+    var deleteShow = function(id){
       return $http.delete(endpoint + id, API.CONFIG);
     };
 

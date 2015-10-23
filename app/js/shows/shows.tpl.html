@@ -83,10 +83,12 @@
         </td>
         <td ng-show="editorEnabled">
           <input type="text" ng-model="show.location" placeholder="{{show.location}}">
+           <a href="#" style="color:red" ng-click="deleteShow(show._id)">Delete</a>
         </td>
         <td ng-show="editorEnabled">
           <input type="text" ng-model="show.description" placeholder="{{show.description}}">
           <a href="#" ng-click="editorEnabled=!editorEnabled; editShow(show)">Done</a>
+
         </td>
 
       </tr>
@@ -122,10 +124,12 @@
         </td>
         <td ng-show="editorEnabled">
           <input type="text" ng-model="show.location" placeholder="{{show.location}}">
+           <a href="#"  style="color:red" ng-click="deleteShow(show._id)">Delete</a>
         </td>
         <td ng-show="editorEnabled">
           <input type="text" ng-model="show.description" placeholder="{{show.description}}">
           <a href="#" ng-click="editorEnabled=!editorEnabled; editShow(show, date)">Done</a>
+
         </td>
 
       </tr>
