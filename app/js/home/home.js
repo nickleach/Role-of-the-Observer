@@ -3,8 +3,8 @@
   'use strict';
   angular.module('App')
 
-  .controller('HomeCtrl', ['$scope', 'AlbumService',
-  function ($scope, AlbumService) {
+  .controller('HomeCtrl', ['$scope', 'AlbumService', 'NewsService',
+  function ($scope, AlbumService, NewsService) {
 
     var $Rotoalbum = document.querySelector('.roto-album'),
     $Quantum = document.querySelector('.quantum'),
@@ -71,6 +71,11 @@
     });
 
   });
+
+  NewsService.getNews().success( function(data){
+    console.log(data);
+  });
+
 
  $(document).foundation();
 
